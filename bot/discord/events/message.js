@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 const axios = require('axios');
 module.exports = async (client, message) => {
     const swears = [
-        'nigga', 'nigger', 'darkisthebestpersoneverireallylovehim', 'faggot', 'fag'
+        'nigga', 'nigger', 'darkisthebestpersoneverireallylovehim', 'faggot', 'fag', 'yourmom', 'slut', 'mong'
     ]
     if (swears.some(x => message.content.toLowerCase().includes(x))) {
         if (message.author.bot) {
