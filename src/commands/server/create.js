@@ -13,10 +13,10 @@ module.exports = {
     requiredPermissions: [],
     checks: [{
         check: () => config.discord.commands.serverCommandsEnabled,
-        error: "The server commands are disabled!"
+        error: "The commands for this server are disabled!"
     }, {
         check: (message, args) => args.length >= 1,
-        error: "You must specify a type!"
+        error: "Please Choose from a type listed!"
     }],
     cooldown: 30000,
     /**
@@ -40,7 +40,7 @@ module.exports = {
 
         if (!serverType) {
             const embed = new EmbedBuilder()
-                .setTitle("Invalid Server Types")
+                .setTitle("Invalid Server Type, Please choose one from the list")
                 .setDescription(`${serverConfig.serverCreationData.map(st => `\`${st.name}\` - \`${st.description}\``).join(", ")}`)
                 .setTimestamp()
 
@@ -93,7 +93,7 @@ module.exports = {
         if (serverData.error) {
             const embed = new MessageEmbed()
                 .setTitle("Failed to create server")
-                .setDescription(`Failed to Create the server, Please contact a staff member.`)
+                .setDescription(`Failed to Create the server, Please contact a system administrator.`)
 
             message.reply({
                 embeds: [embed]
